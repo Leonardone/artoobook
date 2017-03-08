@@ -11,6 +11,10 @@ app.use('/bootstrap', express.static(path.join(__dirname, "..", "node_modules","
 //JQUERY
 app.use('/jquery', express.static(path.join(__dirname, "..", "node_modules","jquery", "dist")));
 
+//JS e CSS
+app.use('/js',express.static(path.join(__dirname, "..", "client", "js")));
+app.use('/css',express.static(path.join(__dirname, "..", "client", "css")));
+
 
 
 //SERVIAMO LA INDEX
