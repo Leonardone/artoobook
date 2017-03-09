@@ -34,9 +34,25 @@ var Users= (function(){
            });
         }
 
+
+
+
+        var getDetails = function(id){
+            return $.ajax({
+
+            url: "http://localhost:3000/users/id/"+id,
+            method: "PUT",
+            contentType: "application/json",
+            dataType: "json",
+
+        
+        });
+        }
+
     return {
         creaUtente:creaUtente,
         getUsers: getUsers,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        getDetails: getDetails
             }
                         })();
