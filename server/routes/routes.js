@@ -14,7 +14,7 @@ app.use('/css',express.static(path.join(__dirname, "..","..", "client", "css")))
 
 //SERVIAMO LA INDEX
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname,"..", "client", "index.html"));
+    res.sendFile(path.join(__dirname,"..","..", "client", "index.html"));
 });
 
 var users = require('./../users/index.js');

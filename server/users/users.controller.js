@@ -1,9 +1,18 @@
+var mongoose = require('mongoose');
+var User = require('./users.model.js');
 module.exports= (function(){
     var getuser= function(req, res){
         res.send("lista utenti");
     };
     var createuser = function(req, res){
-        res.send("creazione utente");
+        var Utente=req.body;
+        var newUtente = new User(Utente);
+        newUtente.save().then(function(data){
+            res.status(200).send(data);
+        }).catch(function(err){
+            res.status(404).send(err);
+        });
+    
     };
     var detailuser=function(req, res){
         var id= req.params.id;
