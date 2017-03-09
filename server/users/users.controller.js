@@ -45,12 +45,25 @@ module.exports= (function(){
            res.status(500).send(err);
        });
     };
+    var cercausers= function(req,res){
+        var cerca = req.query.cerca;
+       User.find({
+           $or:[{"nome": cerca},
+           {"cognome":cerca}]
+        })
+           .exec().then(function(data){
+           res.status(200).json(data);
+       }).catch(function(err){
+           res.status(500).send(err);
+       });
+    };
 
     return{
         getuser: getuser,
         createuser :createuser,
         detailuser: detailuser,
-        deleteuser:deleteuser,
-        updateuser:updateuser
+        deleteuser: deleteuser,
+        updateuser: updateuser,
+        cercausers: cercausers
     };
 })();
