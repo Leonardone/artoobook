@@ -9,6 +9,7 @@ app.use('/jquery', express.static(path.join(__dirname, "..","..", "node_modules"
 //JS e CSS
 app.use('/js',express.static(path.join(__dirname, "..","..", "client", "js")));
 app.use('/css',express.static(path.join(__dirname, "..","..", "client", "css")));
+// app.use('/', express.static(path.join(__dirname,"..","..", "users.js")));
 
 
 
