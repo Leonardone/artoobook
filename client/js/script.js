@@ -17,7 +17,8 @@ $('#miaform').submit(function(event){
       età: età
   }
   Users.creaUtente(nuovo);
-  console.log(nuovo);
+  this.reset(); //pulisce la form dagli input
+  
 });
 
 
