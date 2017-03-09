@@ -30,11 +30,20 @@ module.exports= (function(){
     };
     var deleteuser=function(req, res){
         var id= req.params.id;
-        res.send("eliminato utente con id:" +id)
+        User.findByIdAndRemove(id).exec().then(function(data){
+           res.status(200).json(data);
+        }).catch(function(err){
+            res.status(500).send(err);
+        });
     };
     var updateuser=function(req, res){
         var id= req.params.id;
-        res.send("aggiorno utente con id:" +id)
+        var newdata = req.body;
+       User.findByIdAndUpdate(id, newdata).exec().then(function(data){
+           res.status(200).json(data)
+       }).catch(function(err){
+           res.status(500).send(err);
+       });
     };
 
     return{
