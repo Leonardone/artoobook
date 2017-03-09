@@ -31,14 +31,27 @@ Users.getUsers().then(function(users){
       "<td>"+users[i].cognome +"</td>"+
       "<td>"+users[i].sesso +"</td>"+
       "<td>"+users[i].età +"</td>"+
-      "<td><span idutente='" +users[i]._id+ "' class='glyphicon glyphicon-trash' aria-hidden='true' style='cursor:pointer'></span></td>"+
+      "<td><span idutente='" +users[i]._id+ "' class=' elimina glyphicon glyphicon-trash' aria-hidden='true' style='cursor:pointer'></span></td>"+
       "<tr>";
     }
     $('#tbody').html(str);
+    $('.elimina').click(function(){
+      var id = $(this).attr("idutente");
+      elimina(id);
+    })
 
 }).catch();
 };
-disegna();
 
+
+function elimina(id){
+  Users.deleteUser(id).then(function(data){
+    console.log(data);
+    disegna();
+  }).catch(function(err){
+    console.log(err);
+  });
+};
+disegna();
 
 });

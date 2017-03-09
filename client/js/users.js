@@ -24,8 +24,19 @@ var Users= (function(){
                     });
         }
 
+        var deleteUser= function(id){
+            return $.ajax({
+                url: "http://localhost:3000/users/id/"+id,
+                method: "DELETE",
+                contentType: "application/json",
+                dataType: "json",
+
+           });
+        }
+
     return {
         creaUtente:creaUtente,
-        getUsers: getUsers
+        getUsers: getUsers,
+        deleteUser: deleteUser
             }
                         })();
