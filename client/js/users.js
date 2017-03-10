@@ -41,18 +41,46 @@ var Users= (function(){
             return $.ajax({
 
             url: "http://localhost:3000/users/id/"+id,
-            method: "PUT",
+            method: "GET",
             contentType: "application/json",
             dataType: "json",
 
         
         });
+    }
+      var updateUtente = function(id, aggiornato){
+           
+            return $.ajax({
+
+            url: "http://localhost:3000/users/id/"+id,
+            method: "PUT",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(aggiornato)
+          
+        
+        });
+    }
+
+     var cercaUsers= function(nome){
+         
+                    return $.ajax({
+                        url: "http://localhost:3000/users/cerca/?cerca="+nome,
+                        method: "GET",
+                        contentType: "application/json",
+                        dataType: "json",
+
+                    });
         }
+
+    
 
     return {
         creaUtente:creaUtente,
         getUsers: getUsers,
         deleteUser: deleteUser,
-        getDetails: getDetails
+        getDetails: getDetails,
+        updateUtente: updateUtente,
+        cercaUsers:cercaUsers
             }
                         })();
